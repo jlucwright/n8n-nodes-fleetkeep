@@ -50,7 +50,7 @@ test('example preserves incomplete-list warnings and missing due dates', () => {
 });
 
 test('example rejects malformed API responses instead of inventing an empty fleet', () => {
-  assert.throws(() => summary({ vehicles: [] }, { open: [], recent: [] }), /Unexpected Fleetkeep response/);
+  assert.throws(() => summary({ error: 'unauthorised' }, { open: [], recent: [] }), /Unexpected Fleetkeep response/);
   assert.throws(() => summary({ vehicles: [], truncated: false }, { error: 'unauthorised' }), /Unexpected Fleetkeep response/);
   const empty = summary({ vehicles: [], truncated: false }, { open: [], recent: [] })[0].json;
   assert.equal(empty.completeVehicleList, true);
@@ -65,4 +65,11 @@ test('example cannot send messages, write records or export credentials', () => 
     assert.equal(n.credentials, undefined);
   }
   assert.doesNotMatch(code, /fetch\(|httpRequest|require\(|process\./);
+});
+
+test('live vehicle responses without completeness metadata remain usable without claiming completeness', () => {
+ const result = summary({ vehicles: [{ registration: 'QA26VAN' }] }, { open: [], recent: [] })[0].json;
+ assert.equal(result.vehicleCountReturned, 1);
+ assert.equal(result.completeVehicleList, null);
+ assert.match(result.warning, /does not report/);
 });
