@@ -15,9 +15,9 @@ Each operation returns the full response as one item. Inspect `truncated` when p
 
 ## Credentials
 
-Fleetkeep uses OAuth authorisation-code flow with S256 PKCE. There is no API key to paste. Create a Fleetkeep OAuth2 API credential and enter a client ID registered by Fleetkeep for your n8n instance's exact callback URL. The test used a dedicated loopback-only QA client, revoked after testing. There is no shared general-purpose client.
+Fleetkeep uses OAuth authorisation-code flow with S256 PKCE. There is no API key to paste. Create a Fleetkeep OAuth2 API credential and enter a client ID registered by Fleetkeep for your n8n instance's exact callback URL. The test used a dedicated loopback-only QA client, disabled after testing with refresh access revoked. There is no shared general-purpose client.
 
-The fixed scopes are `vehicles:read maintenance:read offline_access`. The account owner signs in to Fleetkeep and reviews consent. Tokens are stored by n8n's credential system; do not paste them into node parameters or exported workflows. Refresh access is subject to the server's expiry and revocation rules. Client registration is required before an authenticated workflow can run.
+The fixed scopes are `vehicles:read maintenance:read offline_access`. The account owner signs in to Fleetkeep and reviews consent. Tokens are stored by n8n's credential system; do not paste them into node parameters or exported workflows. Refresh access is subject to the server's expiry and revocation rules. Already issued JWT access tokens can remain valid until expiry after refresh revocation; protect and remove test credential copies. Client registration is required before an authenticated workflow can run.
 
 Calls go only to `https://fleetkeep.co.uk/api/v1`. n8n receives the account data you authorise. Review your n8n hosting and any downstream destinations before connecting a real account. The node declares AI-agent tool support with the same read-only operations and scopes; model-driven execution has not yet been verified.
 
