@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-fleetkeep",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Read Fleetkeep vehicles and maintenance tasks in n8n with scoped OAuth access.",
   "license": "MIT",
   "homepage": "https://fleetkeep.co.uk/developers",

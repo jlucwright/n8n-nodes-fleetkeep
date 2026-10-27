@@ -2,7 +2,7 @@
 
 Read vehicles and maintenance tasks from your Fleetkeep account. Use the results in workflows you control, such as preparing a maintenance review for your team.
 
-This is a pre-release integration. It is not published to npm or verified by n8n yet. Production OAuth and both read operations have passed in n8n 2.45.4 using a confirmed fictional marketplace account. AI-agent execution remains unverified.
+Published on npm. Verification by n8n is pending; this is not a verified community node. Production OAuth and both read operations have passed in n8n 2.45.4 using a confirmed fictional marketplace account. AI-agent execution remains unverified.
 
 ## Operations
 
