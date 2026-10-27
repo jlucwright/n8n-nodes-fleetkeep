@@ -1,0 +1,97 @@
+{
+  "name": "Fleetkeep maintenance review (manual, read-only)",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "start",
+      "name": "Run manually",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "vehicle",
+        "operation": "getAll"
+      },
+      "id": "vehicle",
+      "name": "Get vehicles",
+      "type": "n8n-nodes-fleetkeep.fleetkeep",
+      "typeVersion": 1,
+      "position": [
+        240,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "maintenance",
+        "operation": "getAll"
+      },
+      "id": "maintenance",
+      "name": "Get maintenance",
+      "type": "n8n-nodes-fleetkeep.fleetkeep",
+      "typeVersion": 1,
+      "position": [
+        480,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const fleet = $('Get vehicles').first().json;\nconst maintenance = $input.first().json;\nif (!Array.isArray(fleet.vehicles) || typeof fleet.truncated !== 'boolean' || !Array.isArray(maintenance.open) || !Array.isArray(maintenance.recent)) {\n  throw new Error('Unexpected Fleetkeep response; no summary was produced.');\n}\nreturn [{ json: {\n  vehicleCountReturned: fleet.vehicles.length,\n  completeVehicleList: !fleet.truncated,\n  warning: fleet.truncated ? 'Vehicle list is truncated. Review Fleetkeep before using fleet totals.' : null,\n  openTasks: maintenance.open.map(task => ({\n    registration: task.registration ?? null,\n    title: task.title,\n    dueDate: task.dueDate ?? null,\n    priority: task.priority,\n  })),\n  recentCompletedCount: maintenance.recent.length,\n} }];"
+      },
+      "id": "summary",
+      "name": "Prepare maintenance review",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Run manually": {
+      "main": [
+        [
+          {
+            "node": "Get vehicles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get vehicles": {
+      "main": [
+        [
+          {
+            "node": "Get maintenance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get maintenance": {
+      "main": [
+        [
+          {
+            "node": "Prepare maintenance review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}
