@@ -1,0 +1,86 @@
+{
+  "baseline": "c363481",
+  "packageVersion": "0.1.1",
+  "completeAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 14,
+    "high": 28,
+    "critical": 0,
+    "total": 42
+  },
+  "productionAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "primaryAdvisories": [
+    {
+      "name": "glob",
+      "severity": "moderate",
+      "url": "https://github.com/advisories/GHSA-3g3m-2fjr-6pw4",
+      "range": ">=9.0.0 <=14.0.1"
+    },
+    {
+      "name": "minimatch",
+      "severity": "moderate",
+      "url": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+      "range": ">=7.0.0 <11.0.1"
+    },
+    {
+      "name": "picomatch",
+      "severity": "high",
+      "url": "https://github.com/advisories/GHSA-fc5q-39xc-vjpf",
+      "range": "<=4.0.7"
+    },
+    {
+      "name": "qs",
+      "severity": "moderate",
+      "url": "https://github.com/advisories/GHSA-6pq8-jhm2-2vcw",
+      "range": ">=6.7.0 <=6.16.0"
+    },
+    {
+      "name": "stream-json",
+      "severity": "moderate",
+      "url": "https://github.com/advisories/GHSA-528h-pc64-c93x",
+      "range": "<=3.4.0"
+    },
+    {
+      "name": "stream-json",
+      "severity": "moderate",
+      "url": "https://github.com/advisories/GHSA-hqr4-qq8f-hg3x",
+      "range": "<=3.5.0"
+    },
+    {
+      "name": "stream-json",
+      "severity": "moderate",
+      "url": "https://github.com/advisories/GHSA-mjw6-4jj6-33hc",
+      "range": "<3.6.0"
+    },
+    {
+      "name": "uuid",
+      "severity": "moderate",
+      "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq",
+      "range": "<11.1.1"
+    },
+    {
+      "name": "zod",
+      "severity": "high",
+      "url": "https://github.com/advisories/GHSA-mrhx-c7xc-m3w5",
+      "range": "<4.6.6"
+    }
+  ],
+  "checks": {
+    "frozenInstall": "pass",
+    "npmLsAll": "pass",
+    "officialStrictBuild": "pass",
+    "officialStrictLint": "pass with two operation-label style warnings",
+    "contractTests": 6
+  },
+  "runtimeUnchanged": true,
+  "fullRemediation": false,
+  "published": false
+}
