@@ -1,0 +1,47 @@
+{
+  "publishedVersion": "0.1.1",
+  "archiveIntegrity": "sha512-PsePOIhSBkHHFurzalRFX9WEmiNPi+1dZwadKA7VuwVz5kP1NXikNgtCeIe3DWVtNSbuTjS6Bzt8AN0rKUx3nw==",
+  "files": [
+    {
+      "file": "package/dist/nodes/Fleetkeep/Fleetkeep.node.js",
+      "identical": true,
+      "sha256": "79f6e0ab9265e614e8eca231ccbd33e13f67ea395dd343d5534f8b36f5089c90"
+    },
+    {
+      "file": "package/dist/credentials/FleetkeepOAuth2Api.credentials.js",
+      "identical": true,
+      "sha256": "e6b9a820fbc9331c2b9400661a773ff375d11e88db71a7732167f79b373d6e14"
+    },
+    {
+      "file": "package/dist/nodes/Fleetkeep/Fleetkeep.node.json",
+      "identical": true,
+      "sha256": "f060370ab0f28fc7d0f536018b0f72545a6a49800da08f02e8934aabd476e9cb"
+    },
+    {
+      "file": "package/dist/package.json",
+      "identical": false,
+      "sha256": "9a1803129b1fb4f0788d9e0b655866b9d63a8f64eded4bbce2f52224f5c2c476"
+    },
+    {
+      "file": "package/dist/credentials/fleetkeep.svg",
+      "identical": true,
+      "sha256": "e81691afb3511836ed94d19dc8c046156dea36225c143d1528a7121262203431"
+    },
+    {
+      "file": "package/dist/nodes/Fleetkeep/fleetkeep.svg",
+      "identical": true,
+      "sha256": "e81691afb3511836ed94d19dc8c046156dea36225c143d1528a7121262203431"
+    },
+    {
+      "file": "package/dist/nodes/Fleetkeep/Fleetkeep.node.d.ts",
+      "identical": true,
+      "sha256": "d6238cfe93caec6c4ce297ba7d653721b19927b8f37f1cf138f610477380c77e"
+    },
+    {
+      "file": "package/dist/credentials/FleetkeepOAuth2Api.credentials.d.ts",
+      "identical": true,
+      "sha256": "0c472c58d0fbb69defc8aebd8196bdc984a1f0ff1c929318e4e5e689b5ba1344"
+    }
+  ],
+  "distManifestDiffOnlyDevDependencies": true
+}
